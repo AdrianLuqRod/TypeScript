@@ -245,3 +245,5 @@ const canvas = document.querySelector("canvas") as HTMLCanvasElement;
 if (canvas instanceof HTMLCanvasElement) {
   const ctx = canvas.getContext("2d");
 }
+
+// Fetching de datos
