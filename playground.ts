@@ -2,22 +2,22 @@
 
 const a = 1;
 const b = 2;
-const c = a + b; //. <--- C también es de tipo 'number'
+const c = a + b; //. --> C también es de tipo 'number'
 
 console.log(c);
 
 let cadenaDeTexto = "hola";
 cadenaDeTexto.toLowerCase();
 
-//! cadenaDeTexto = 2;  <--- Error
-//! cadenaDeTexto.PropiedadQueNoExiste();  <--- Error
+//! cadenaDeTexto = 2;  --> Error
+//! cadenaDeTexto.PropiedadQueNoExiste();  --> Error
 
 //- Funciones
 function saludar(name: string) {
   console.log(`Hola ${name}`);
 }
 saludar("Mundo");
-//!saludar(2);  <--- Error
+//!saludar(2);  --> Error
 
 //Como tipar correctamente parametros funciones con TypeScript
 
@@ -30,7 +30,7 @@ saludar2({ name: "Mundo", age: 22 });
 
 function saludar3({ name, age }: { name: string; age: number }) {
   console.log(`Hola ${name}`);
-  return age;
+  return age; 
 }
 
 //- Tipar funciones en TypeScript
@@ -52,7 +52,7 @@ const restar: (a: number, b: number) => number = (a, b) => {
   return a + b;
 };
 
-//. never <--- Se usa para funciones que nunca devuelven nada porque nunca termina de ejecutarse
+//. never --> Se usa para funciones que nunca devuelven nada porque nunca termina de ejecutarse
 function throwError(message: string): never {
   throw new Error(message);
 }
@@ -64,7 +64,7 @@ type Hero = {
   age: number;
 };
 
-let hero: Hero = {
+let hero: Hero = { 
   name: "Batman",
   age: 33,
 };
@@ -79,29 +79,29 @@ function createHero(name: string, age: number): Hero {
 const thor = createHero("Thor", 22);
 
 function createHero2(hero: Hero): Hero2 {
-  const { name, age } = hero;
+  const { name, age } = hero; 
   return {
     name,
-    age,
+    age, // 
   };
 }
 
 const thor2 = createHero2({ name: "Thor2", age: 23 });
 
-// Optional Properties
+// Optional Properties 
 
 type Hero2 = {
-  readonly id?: number; //. <--- El '?' indica que es opcional
+  readonly id?: number; //. --> El '?' indica que es opcional
   name: String;
   age: number;
-  isActive?: boolean; //. <--- El '?' indica que es opcional
+  isActive?: boolean; //. --> El '?' indica que es opcional
 };
 
-thor2.id?.toString(); //. <--- Si id es undefined, no se ejecuta el método
+thor2.id?.toString(); //. --> Si id es undefined, no se ejecuta el método
 
-//. thor2.id = 5743895  <--- Error porque es de solo lectura
+//. thor2.id = 5743895  --> Error porque es de solo lectura
 
-thor2.id ?? 43; //. <--- Si id es undefined, se asigna 43 || Valor por defecto ||
+thor2.id ?? 43; //. --> Si id es undefined, se asigna 43 || Valor por defecto ||
 
 // Template union types
 
@@ -178,14 +178,14 @@ type Address2 = ReturnType<typeof createAddress>;
 
 // Arrays
 
-const languages = []; // <--- Detecta que siempre este vacio, tipo never
+const languages = []; // --> Detecta que siempre este vacio, tipo never
 
-// languages.push("JavaScript"); <--- Da error porque automáticamente se tipa como never
+// languages.push("JavaScript"); --> Da error porque automáticamente se tipa como never
 
 const languages2: string[] = [];
 languages2.push("JavaScript");
-languages2.push("JavaScript");
-languages2.push("JavaScript");
+languages2.push("JavaScript"); 
+languages2.push("JavaScript");  
 languages2.push("JavaScript");
 
 // Arrays con tipos mixtos
@@ -223,7 +223,7 @@ type RGB = [number, number, number];
 enum ERROR_TYPES {
   NOT_FOUND,
   UNAUTHORIZED,
-  INTERNAL_SERVER_ERROR,
+  INTERNAL_SERVER_ERROR, 
 }
 
 function mostrarMensaje(tipoDeError: ERROR_TYPES) {
