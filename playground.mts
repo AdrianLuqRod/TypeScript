@@ -391,4 +391,4 @@ class Avenger {
 
 const avengers = new Avenger("Spidey", 80);
 
-avengers.name = "Hulk"; // <-- Sin sentido.
+// avengers.name = "Hulk"; <-- Sin sentido.
