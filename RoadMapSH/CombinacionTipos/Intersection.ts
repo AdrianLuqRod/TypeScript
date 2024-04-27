@@ -16,3 +16,9 @@ interface chasisCoche {
 
 type coche = Motor & chasisCoche;
 type motocicleta = Motor & chasisMoto;
+
+let miCoche: coche = {
+  piezas: "Motor",
+  ruedas: 4,
+  puertas: 4,
+};
