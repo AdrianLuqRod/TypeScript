@@ -13,3 +13,7 @@ if (mascota instanceof Pajaro) {
 } else {
   console.log("Mascota no es un pajaro");
 }
+
+function first<T>(arr: T[]): T | undefined {
+  return arr[0];
+}
